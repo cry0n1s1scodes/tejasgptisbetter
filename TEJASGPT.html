@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TejasGPT by cry0.xyz - Advanced AI Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(255, 7, 58, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 7, 58, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        .cry0-logo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: #ff073a;
+            font-size: 1.2rem;
+            animation: glitch 2s infinite;
+            text-shadow: 0 0 10px rgba(255,7,58,0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ff073a, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,7,58,0.2), rgba(0,0,0,0.8));
+            border: 1px solid rgba(255,7,58,0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(255,7,58,0.2);
+        }
+
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff073a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-card h3 i {
+            margin-right: 12px;
+            color: #ff073a;
+            font-size: 1.3em;
+            text-shadow: 0 0 10px rgba(255,7,58,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover h3 i {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .try-area {
+            background: linear-gradient(135deg, rgba(255,7,58,0.2), rgba(0,0,0,0.8));
+            border: 1px solid rgba(255,7,58,0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+        }
+
+        .try-area h 2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff073a;
+            margin-bottom: 1rem;
+        }
+
+        #chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 7, 58, 0.3);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .user-message, .ai-message, .error-message {
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background: rgba(255, 7, 58, 0.1);
+            border: 1px solid rgba(255, 7, 58, 0.3);
+        }
+
+        .ai-message {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .error-message {
+            color: #ff073a;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 50px);
+            padding: 10px;
+            border: 1px solid rgba(255, 7, 58, 0.3);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff073a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6002e;
+        }
+    </style>
+</head>
+<body>
+    <div class="cry0-logo">cry0.xyz</div>
+    
+    <div class="container">
+        <header>
+            <h1>TejasGPT</h1>
+            <p class="subtitle">Your AI-powered assistant for advanced solutions.</p>
+        </header>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fas fa-robot"></i> AI Chat</h3>
+                <p>Engage in intelligent conversations with our AI.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-code"></i> Code Assistance</h3>
+                <p>Get help with coding and debugging.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-lightbulb"></i> Ideas Generation</h3>
+                <p>Brainstorm ideas for your projects.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-atom"></i>Quantum Reasoning</h3>
+                <p>Advanced problem-solving capabilities using quantum-inspired algorithms for complex decision-making scenarios.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-brain"></i>Neural Evolution</h3>
+                <p>Self-improving architecture that adapts and evolves through continuous learning and environmental interaction.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-bolt"></i>Zero-Shot Mastery</h3>
+                <p>Execute tasks with minimal instruction through advanced contextual understanding and pattern recognition.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-shield-alt"></i>Cognitive Security</h3>
+                <p>Military-grade security protocols with neural firewalls and adaptive threat detection systems.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-link"></i>Omni-Integration</h3>
+                <p>Seamless API integration with multi-platform support and real-time data synchronization.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-hand-holding-heart"></i>Ethical Core</h3>
+                <p>Built-in constitutional AI safeguards ensuring ethical decision-making and regulatory compliance.</p>
+            </div>
+        </div>
+
+        <div class="try-area">
+            <h <h2>Try it out!</h2>
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message here...">
+            <button id="send-button"><i class="fas fa-paper-plane"></i> Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const GROQ_API_KEY = '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';
+        const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
+
+        sendButton.addEventListener('click', sendMessage);
+
+        async function sendMessage() {
+            const message = userInput.value;
+            if (message.trim() === '') return;
+
+            appendMessage('<div class="user-message">You: ' + message + '</div>');
+            userInput.value = '';
+            toggleLoadingState(true);
+
+            try {
+                const response = await fetch(GROQ_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${GROQ_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: "llama3-70b-8192",
+                        messages: [{
+                            role: "user",
+                            content: message
+                        }],
+                        temperature: 0.7,
+                        max_tokens: 1024,
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const reply = data.choices[0].message.content;
+                appendMessage('<div class="ai-message">TejasGPT: ' + reply + '</div>');
+
+            } catch (error) {
+                console.error('Error:', error);
+                appendMessage('<div class="error-message">⚠️ Connection Error - Check console/logs</div>');
+            } finally {
+                toggleLoadingState(false);
+            }
+        }
+
+        function toggleLoadingState(isLoading) {
+            userInput.disabled = isLoading;
+            sendButton.disabled = isLoading;
+            sendButton.innerHTML = isLoading 
+                ? '<i class="fas fa-spinner fa-spin"></i> Processing...'
+                : '<i class="fas fa-paper-plane"></i> Send';
+        }
+
+        function appendMessage(content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.innerHTML = content;
+            messageDiv.style.margin = '10px 0';
+            messageDiv.style.padding = '12px';
+            messageDiv.style.borderRadius = '8px';
+            
+            if (content.includes('user-message')) {
+                messageDiv.style.background = 'rgba(255,7,58,0.1)';
+                messageDiv.style.border = '1px solid rgba(255,7,58,0.3)';
+            } else {
+                messageDiv.style.background = 'rgba(0,0,0,0.3)';
+                messageDiv.style.border = '1px solid rgba(255,255,255,0.1)';
+            }
+
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
